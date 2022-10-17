@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_onboarding/constants.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+
+import '../../../constants.dart';
 
 class SliderContent extends StatelessWidget {
   const SliderContent({
@@ -18,35 +19,25 @@ class SliderContent extends StatelessWidget {
 
     return Column(
       children: [
-        Spacer(),
-
+        const Spacer(),
         SvgPicture.asset(
           image!,
-          height: (270 / 896) * size.height, // 896 is width that designer used, 270 is height of the image that designer used
+          height: (270 / 896) *
+              size.height, // 896 is width that designer used, 270 is height of the image that designer used
         ),
-
-        Spacer(),
-
+        const Spacer(),
         Text(
           title!,
-          style: TextStyle(
-            fontSize: 24,
-            color: kTextColor,
-            fontWeight: FontWeight.bold
-          ),
+          style: const TextStyle(
+              fontSize: 24, color: kTextColor, fontWeight: FontWeight.bold),
         ),
-
-        SizedBox(height: kDefaultPadding / 2),
-
+        const SizedBox(height: kDefaultPadding / 2),
         Padding(
-          padding: EdgeInsets.symmetric(horizontal: kDefaultPadding * 2),
+          padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding * 2),
           child: Text(
             text!,
             textAlign: TextAlign.center,
-            style: TextStyle(
-              color: kTextLightColor,
-              fontSize: 18
-            ),
+            style: const TextStyle(color: kTextLightColor, fontSize: 18),
           ),
         )
       ],

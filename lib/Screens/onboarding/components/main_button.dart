@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_onboarding/constants.dart';
+import '../../../constants.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class MainButton extends StatelessWidget {
-  const MainButton({
-    Key? key,
-    required this.tapEvent
-  }) : super(key: key);
+  const MainButton({Key? key, required this.tapEvent}) : super(key: key);
 
   final GestureTapCallback tapEvent;
 
@@ -16,34 +13,26 @@ class MainButton extends StatelessWidget {
 
     return InkWell(
       onTap: tapEvent,
-      borderRadius: BorderRadius.only(
-        topRight: Radius.circular(20),
-        bottomLeft: Radius.circular(20)
-      ),
+      borderRadius: const BorderRadius.only(
+          topRight: Radius.circular(20), bottomLeft: Radius.circular(20)),
       child: Container(
         width: (150 / 414) * size.width,
         height: 50,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.only(
-            topRight: Radius.circular(20),
-            bottomLeft: Radius.circular(20)
-          ),
-          color: kPrimaryColor
-        ),
+        decoration: const BoxDecoration(
+            borderRadius: BorderRadius.only(
+                topRight: Radius.circular(20), bottomLeft: Radius.circular(20)),
+            color: kPrimaryColor),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
+            const Text(
               'Next',
               style: TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
-                fontSize: 16
-              ),
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16),
             ),
-
-            SizedBox(width: kDefaultPadding),
-
+            const SizedBox(width: kDefaultPadding),
             SvgPicture.asset('assets/icons/next.svg')
           ],
         ),

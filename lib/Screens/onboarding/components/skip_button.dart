@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_onboarding/constants.dart';
+import '../../../constants.dart';
 
 class SkipButton extends StatelessWidget {
   const SkipButton({
@@ -15,12 +15,12 @@ class SkipButton extends StatelessWidget {
 
     return InkWell(
       onTap: tapEvent,
-      child: Container(
+      child: SizedBox(
         width: (150 / 414) * size.width,
         height: 50,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [
+          children: const [
             Text(
               'Skip',
               style: TextStyle(

@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_onboarding/Screens/onboarding/components/main_button.dart';
-import 'package:flutter_onboarding/Screens/onboarding/components/skip_button.dart';
-import 'package:flutter_onboarding/Screens/onboarding/components/slider_content.dart';
-import 'package:flutter_onboarding/constants.dart';
+import 'components/main_button.dart';
+import 'components/skip_button.dart';
+import 'components/slider_content.dart';
+import '../../constants.dart';
 
 class OnboardingScreen extends StatefulWidget {
+  const OnboardingScreen({super.key});
+
   @override
   _OnboardingScreenState createState() => _OnboardingScreenState();
 }
@@ -15,51 +17,52 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   List<Map<String, String>> sliders = [
     {
       "title": "Meeting Online",
-      "text": "Stay home and complete all of your importance work and meeting for keeping safe you and your family member",
+      "text":
+          "Stay home and complete all of your importance work and meeting for keeping safe you and your family member",
       "image": "assets/images/slider1.svg"
     },
     {
       "title": "Wear a Mask",
-      "text": "When you go outside of your home then obviously you have to wear a mask for keeping safe from covid-19",
+      "text":
+          "When you go outside of your home then obviously you have to wear a mask for keeping safe from covid-19",
       "image": "assets/images/slider2.svg"
     },
     {
       "title": "Social Distance",
-      "text": "By maintaining social distance you can kep safe from other covid virus affected people and keep safe from covid-19",
+      "text":
+          "By maintaining social distance you can kep safe from other covid virus affected people and keep safe from covid-19",
       "image": "assets/images/slider3.svg"
     },
   ];
 
-  PageController sliderController = PageController(initialPage: 0, keepPage: false);
+  PageController sliderController =
+      PageController(initialPage: 0, keepPage: false);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Container(
+        child: SizedBox(
           width: double.infinity,
           child: Column(
             children: [
               Expanded(
                 flex: 2,
                 child: PageView.builder(
-                  onPageChanged: (index) {
-                    setState(() {
-                      selectedSlider = index;
-                    });
-                  },
-                  controller: sliderController,
-                  itemCount: sliders.length,
-                  itemBuilder: (context, index) => SliderContent(
-                    image: sliders[index]['image'],
-                    title: sliders[index]['title'],
-                    text: sliders[index]['text'],
-                  )
-                ),
+                    onPageChanged: (index) {
+                      setState(() {
+                        selectedSlider = index;
+                      });
+                    },
+                    controller: sliderController,
+                    itemCount: sliders.length,
+                    itemBuilder: (context, index) => SliderContent(
+                          image: sliders[index]['image'],
+                          title: sliders[index]['title'],
+                          text: sliders[index]['text'],
+                        )),
               ),
-
-              SizedBox(height: kDefaultPadding),
-
+              const SizedBox(height: kDefaultPadding),
               Expanded(
                 child: Column(
                   children: [
@@ -70,23 +73,21 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                         (index) => buildSliderNav(index: index),
                       ),
                     ),
-
-                    Spacer(),
-
+                    const Spacer(),
                     Padding(
-                      padding: EdgeInsets.all(kDefaultPadding),
+                      padding: const EdgeInsets.all(kDefaultPadding),
                       child: Row(
                         children: [
-                          SkipButton(
-                            tapEvent: () {}
-                          ),
-
-                          Spacer(),
-
+                          SkipButton(tapEvent: () {}),
+                          const Spacer(),
                           MainButton(
                             tapEvent: () {
                               if (selectedSlider != (sliders.length - 1)) {
-                                sliderController.animateToPage(selectedSlider + 1, duration: Duration(milliseconds: 400), curve: Curves.linear);
+                                sliderController.animateToPage(
+                                  selectedSlider + 1,
+                                  duration: const Duration(milliseconds: 400),
+                                  curve: Curves.linear,
+                                );
                               }
                             },
                           )
@@ -105,14 +106,14 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
   AnimatedContainer buildSliderNav({int? index}) {
     return AnimatedContainer(
-      duration: Duration(milliseconds: 200),
-      margin: EdgeInsets.only(right: 5),
+      duration: const Duration(milliseconds: 200),
+      margin: const EdgeInsets.only(right: 5),
       height: 10,
       width: 10,
       decoration: BoxDecoration(
-        color: selectedSlider == index ? kPrimaryColor : Color(0xFFD7D7D7),
-        borderRadius: BorderRadius.circular(5)
-      ),
+          color:
+              selectedSlider == index ? kPrimaryColor : const Color(0xFFD7D7D7),
+          borderRadius: BorderRadius.circular(5)),
     );
   }
 }
