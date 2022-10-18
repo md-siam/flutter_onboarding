@@ -20,7 +20,9 @@ class MainButton extends StatelessWidget {
         height: 50,
         decoration: const BoxDecoration(
             borderRadius: BorderRadius.only(
-                topRight: Radius.circular(20), bottomLeft: Radius.circular(20)),
+              topRight: Radius.circular(20),
+              bottomLeft: Radius.circular(20),
+            ),
             color: kPrimaryColor),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
