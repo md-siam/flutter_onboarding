@@ -20,16 +20,19 @@ class SliderContent extends StatelessWidget {
     return Column(
       children: [
         const Spacer(),
+        // 896 is width that designer used, 270 is height of the image that designer used
         SvgPicture.asset(
           image!,
-          height: (270 / 896) *
-              size.height, // 896 is width that designer used, 270 is height of the image that designer used
+          height: (270 / 896) * size.height,
         ),
         const Spacer(),
         Text(
           title!,
           style: const TextStyle(
-              fontSize: 24, color: kTextColor, fontWeight: FontWeight.bold),
+            fontSize: 24,
+            color: kTextColor,
+            fontWeight: FontWeight.bold,
+          ),
         ),
         const SizedBox(height: kDefaultPadding / 2),
         Padding(

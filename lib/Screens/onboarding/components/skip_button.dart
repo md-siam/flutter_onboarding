@@ -2,10 +2,7 @@ import 'package:flutter/material.dart';
 import '../../../constants.dart';
 
 class SkipButton extends StatelessWidget {
-  const SkipButton({
-    Key? key,
-    required this.tapEvent
-  }) : super(key: key);
+  const SkipButton({Key? key, required this.tapEvent}) : super(key: key);
 
   final GestureTapCallback tapEvent;
 
@@ -23,10 +20,7 @@ class SkipButton extends StatelessWidget {
           children: const [
             Text(
               'Skip',
-              style: TextStyle(
-                color: kTextLightColor,
-                fontSize: 16
-              ),
+              style: TextStyle(color: kTextLightColor, fontSize: 16),
             ),
           ],
         ),

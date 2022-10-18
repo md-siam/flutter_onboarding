@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'components/main_button.dart';
+import 'components/next_button.dart';
 import 'components/skip_button.dart';
 import 'components/slider_content.dart';
 import '../../constants.dart';
 
 class OnboardingScreen extends StatefulWidget {
-  const OnboardingScreen({super.key});
+  const OnboardingScreen({Key? key}) : super(key: key);
 
   @override
-  _OnboardingScreenState createState() => _OnboardingScreenState();
+  State<OnboardingScreen> createState() => _OnboardingScreenState();
 }
 
 class _OnboardingScreenState extends State<OnboardingScreen> {
@@ -49,18 +49,19 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               Expanded(
                 flex: 2,
                 child: PageView.builder(
-                    onPageChanged: (index) {
-                      setState(() {
-                        selectedSlider = index;
-                      });
-                    },
-                    controller: sliderController,
-                    itemCount: sliders.length,
-                    itemBuilder: (context, index) => SliderContent(
-                          image: sliders[index]['image'],
-                          title: sliders[index]['title'],
-                          text: sliders[index]['text'],
-                        )),
+                  onPageChanged: (index) {
+                    setState(() {
+                      selectedSlider = index;
+                    });
+                  },
+                  controller: sliderController,
+                  itemCount: sliders.length,
+                  itemBuilder: (context, index) => SliderContent(
+                    image: sliders[index]['image'],
+                    title: sliders[index]['title'],
+                    text: sliders[index]['text'],
+                  ),
+                ),
               ),
               const SizedBox(height: kDefaultPadding),
               Expanded(
@@ -80,7 +81,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                         children: [
                           SkipButton(tapEvent: () {}),
                           const Spacer(),
-                          MainButton(
+                          NextButton(
                             tapEvent: () {
                               if (selectedSlider != (sliders.length - 1)) {
                                 sliderController.animateToPage(
